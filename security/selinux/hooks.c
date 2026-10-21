@@ -2264,9 +2264,7 @@ static int selinux_vm_enough_memory(struct mm_struct *mm, long pages)
 
 /* binprm security operations */
 
-#ifdef CONFIG_KSU
-extern bool is_ksu_transition(u32 old_sid, u32 new_sid);
-#endif
+
 
 static int check_nnp_nosuid(const struct linux_binprm *bprm,
 			    const struct task_security_struct *old_tsec,
@@ -2282,13 +2280,7 @@ static int check_nnp_nosuid(const struct linux_binprm *bprm,
 	if (new_tsec->sid == old_tsec->sid)
 		return 0; /* No change in credentials */
 
-#ifdef CONFIG_KSU
 
-	if (is_ksu_transition(old_tsec->sid, new_tsec->sid)) {
-		return 0;
-
-	}
-#endif
 
 	/*
 	 * The only transitions we permit under NNP or nosuid

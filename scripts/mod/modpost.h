@@ -17,6 +17,15 @@
 #undef ELF_R_SYM
 #undef ELF_R_TYPE
 
+#undef ELF32_ST_BIND
+#define ELF32_ST_BIND(val) (((unsigned char) (val)) >> 4)
+#undef ELF32_ST_TYPE
+#define ELF32_ST_TYPE(val) ((val) & 0xf)
+#undef ELF64_ST_BIND
+#define ELF64_ST_BIND(val) (((unsigned char) (val)) >> 4)
+#undef ELF64_ST_TYPE
+#define ELF64_ST_TYPE(val) ((val) & 0xf)
+
 #if KERNEL_ELFCLASS == ELFCLASS32
 
 #define Elf_Ehdr    Elf32_Ehdr

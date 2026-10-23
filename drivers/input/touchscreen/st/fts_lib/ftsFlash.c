@@ -52,7 +52,7 @@
 /* #include <linux/sec_sysfs.h> */
 
 #ifdef FW_H_FILE
-#include <../fts_fw.h>
+#include "../fts_fw.h"
 #endif
 
 /* static char tag[8] = "[ FTS ]\0"; */

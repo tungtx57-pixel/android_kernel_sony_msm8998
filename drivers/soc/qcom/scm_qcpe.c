@@ -32,7 +32,7 @@
 #include <linux/habmm.h>
 
 #ifdef CONFIG_GHS_VMM
-#include <../../staging/android/ion/ion_hvenv_driver.h>
+#include "../../staging/android/ion/ion_hvenv_driver.h"
 #include <linux/msm_ion.h>
 #include <soc/qcom/qseecomi.h>
 #endif

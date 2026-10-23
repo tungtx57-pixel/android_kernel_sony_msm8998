@@ -27,6 +27,14 @@
 #undef Elf_r_info
 #undef ELF_ST_BIND
 #undef ELF_ST_TYPE
+#undef ELF32_ST_BIND
+#define ELF32_ST_BIND(val) (((unsigned char) (val)) >> 4)
+#undef ELF32_ST_TYPE
+#define ELF32_ST_TYPE(val) ((val) & 0xf)
+#undef ELF64_ST_BIND
+#define ELF64_ST_BIND(val) (((unsigned char) (val)) >> 4)
+#undef ELF64_ST_TYPE
+#define ELF64_ST_TYPE(val) ((val) & 0xf)
 #undef fn_ELF_R_SYM
 #undef fn_ELF_R_INFO
 #undef uint_t
